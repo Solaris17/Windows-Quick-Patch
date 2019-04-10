@@ -3,7 +3,7 @@ SETLOCAL EnableDelayedExpansion
 for /F "tokens=1,2 delims=#" %%a in ('"prompt #$H#$E# & Echo on & for %%b in (1) do     rem"') do (
   set "DEL=%%a"
 )
-title Windows Quick Patch V .9
+title Windows Quick Patch V .91
 cls
 
 :checkPrivileges 
@@ -237,7 +237,8 @@ exit
 :step3
 @Echo step3 > C:\Step.txt
 :: Installing first MSU
-SC stop wuauserv
+timeout 10 > nul
+SC stop wuauserv > nul
 cls
 Echo.
 Echo Step 3 of 6
